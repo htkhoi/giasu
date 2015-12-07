@@ -14,19 +14,20 @@
 					@endif
 
 					<form class="form-horizontal" role="form" method="POST" action="{{ url('/auth/login') }}">
+					{!! Form::open(array('url' => 'auth/login', 'method' => 'post', 'class' => 'form-horizontal')) !!}
 						{!! csrf_field() !!}
 
 						<div class="form-group">
-							<label class="col-md-4 control-label">E-Mail Address</label>
+							{!! Form::label('email', 'E-Mail Address', array('class' => 'col-md-4 control-label')) !!}
 							<div class="col-md-6">
-								<input type="email" class="form-control" name="email" value="{{ old('email') }}">
+								{!! Form::email('email', '', array('class' => 'form-control')) !!}
 							</div>
 						</div>
 
 						<div class="form-group">
-							<label class="col-md-4 control-label">Password</label>
+							{!! Form::label('password', 'Password', array('class' => 'col-md-4 control-label')) !!}
 							<div class="col-md-6">
-								<input type="password" class="form-control" name="password">
+								{!! Form::password('password', array('class' => 'form-control')) !!}
 							</div>
 						</div>
 
@@ -34,7 +35,7 @@
 							<div class="col-md-6 col-md-offset-4">
 								<div class="checkbox">
 									<label>
-										<input type="checkbox" name="remember"> Remember Me
+										{!! Form::checkbox('remember') !!} Remember Me
 									</label>
 								</div>
 							</div>
@@ -47,7 +48,7 @@
 								<a class="btn btn-link" href="{{ url('/password/email') }}">Forgot Your Password?</a>
 							</div>
 						</div>
-					</form>
+					{!! Form::close() !!}
 				</div>
 			</div>
 		</div>
