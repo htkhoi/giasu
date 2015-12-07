@@ -36,6 +36,16 @@
                 </div>
             </form>
         </div>
+        @if (!Auth::check())
+        <div class="col-md-12">
+            <a class="btn btn-primary" href="{{ url('auth/login') }}">Login</a>
+        </div>
+        @endif
+        @if (Auth::check())
+        <div class="col-md-12">
+            <a class="btn btn-primary" href="{{ url('auth/logout') }}">Logout</a>
+        </div>
+        @endif
     </div>
 </div>
 
